@@ -21,10 +21,10 @@ describe('AppComponent', () => {
   });
 
   /*
-  it(`should have as title 'book-monkey'`, () => {
+  it(`should have as title 'angular-ssr'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('book-monkey');
+    expect(app.title).toEqual('angular-ssr');
   });
   */
 
@@ -33,7 +33,7 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('book-monkey app is running!');
+    expect(compiled.querySelector('.content span')?.textContent).toContain('angular-ssr app is running!');
   });
   */
 });

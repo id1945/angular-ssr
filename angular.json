@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "book-monkey": {
+    "angular-ssr": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/book-monkey/browser",
+            "outputPath": "dist/angular-ssr/browser",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -54,7 +54,7 @@
               "namedChunks": true
             },
             "prerender": {
-              "outputPath": "dist/book-monkey"
+              "outputPath": "dist/angular-ssr"
             }
           },
           "defaultConfiguration": "production"
@@ -63,10 +63,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "book-monkey:build:production"
+              "browserTarget": "angular-ssr:build:production"
             },
             "development": {
-              "browserTarget": "book-monkey:build:development"
+              "browserTarget": "angular-ssr:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -74,7 +74,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "book-monkey:build"
+            "browserTarget": "angular-ssr:build"
           }
         },
         "test": {
@@ -107,7 +107,7 @@
         "server": {
           "builder": "@angular-devkit/build-angular:server",
           "options": {
-            "outputPath": "dist/book-monkey/server",
+            "outputPath": "dist/angular-ssr/server",
             "main": "server.ts",
             "tsConfig": "tsconfig.server.json"
           },
@@ -121,7 +121,7 @@
               "extractLicenses": false
             },
             "prerender": {
-              "outputPath": "dist/book-monkey-server"
+              "outputPath": "dist/angular-ssr-server"
             }
           },
           "defaultConfiguration": "production"
@@ -130,12 +130,12 @@
           "builder": "@nguniversal/builders:ssr-dev-server",
           "configurations": {
             "development": {
-              "browserTarget": "book-monkey:build:development",
-              "serverTarget": "book-monkey:server:development"
+              "browserTarget": "angular-ssr:build:development",
+              "serverTarget": "angular-ssr:server:development"
             },
             "production": {
-              "browserTarget": "book-monkey:build:production",
-              "serverTarget": "book-monkey:server:production"
+              "browserTarget": "angular-ssr:build:production",
+              "serverTarget": "angular-ssr:server:production"
             }
           },
           "defaultConfiguration": "development"
@@ -155,12 +155,12 @@
           },
           "configurations": {
             "production": {
-              "browserTarget": "book-monkey:build:production,prerender",
-              "serverTarget": "book-monkey:server:production,prerender"
+              "browserTarget": "angular-ssr:build:production,prerender",
+              "serverTarget": "angular-ssr:server:production,prerender"
             },
             "development": {
-              "browserTarget": "book-monkey:build:development",
-              "serverTarget": "book-monkey:server:development"
+              "browserTarget": "angular-ssr:build:development",
+              "serverTarget": "angular-ssr:server:development"
             }
           },
           "defaultConfiguration": "production"

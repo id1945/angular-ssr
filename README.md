@@ -14,10 +14,10 @@ npm i @nguniversal/express-engine --save
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "lint": "ng lint",
-    "dev:ssr": "ng run book-monkey:serve-ssr",
-    "serve:ssr": "node dist/book-monkey/server/main.js",
-    "build:ssr": "ng build && ng run book-monkey:server",
-    "prerender": "ng run book-monkey:prerender"
+    "dev:ssr": "ng run angular-ssr:serve-ssr",
+    "serve:ssr": "node dist/angular-ssr/server/main.js",
+    "build:ssr": "ng build && ng run angular-ssr:server",
+    "prerender": "ng run angular-ssr:prerender"
 }
 ```
 
@@ -61,7 +61,7 @@ import { AppServerModule } from './src/main.server';
 // The Express app is exported so that it can be used by serverless Functions.
 export function app(): express.Express {
   const server = express();
-  const distFolder = join(process.cwd(), 'dist/book-monkey/browser');
+  const distFolder = join(process.cwd(), 'dist/angular-ssr/browser');
   const indexHtml = existsSync(join(distFolder, 'index.original.html')) ? 'index.original.html' : 'index';
 
   // Our Universal express-engine (found @ https://github.com/angular/universal/tree/main/modules/express-engine)

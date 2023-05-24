@@ -1,5 +1,5 @@
 {
-  "name": "book-monkey",
+  "name": "angular-ssr",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -8,10 +8,10 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "lint": "ng lint",
-    "dev:ssr": "ng run book-monkey:serve-ssr",
-    "serve:ssr": "node dist/book-monkey/server/main.js",
-    "build:ssr": "ng build && ng run book-monkey:server",
-    "prerender": "ng run book-monkey:prerender"
+    "dev:ssr": "ng run angular-ssr:serve-ssr",
+    "serve:ssr": "node dist/angular-ssr/server/main.js",
+    "build:ssr": "ng build && ng run angular-ssr:server",
+    "prerender": "ng run angular-ssr:prerender"
   },
   "private": true,
   "dependencies": {
@@ -26,7 +26,6 @@
     "@angular/router": "^16.0.0",
     "@nguniversal/express-engine": "^16.0.2",
     "angular-date-value-accessor": "^3.0.0",
-    "book-monkey5-styles": "^1.0.4",
     "express": "^4.15.2",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
