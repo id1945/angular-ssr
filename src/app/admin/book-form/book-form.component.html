@@ -27,7 +27,7 @@
   </button>
   <fieldset formArrayName="authors">
     <input
-      *ngFor="let a of authors.controls; index as i"
+      *ngFor="let a of fa.controls; index as i"
       [attr.aria-label]="'Author ' + i"
       [formControlName]="i">
   </fieldset>

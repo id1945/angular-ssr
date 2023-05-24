@@ -22,10 +22,7 @@ export class BookFormComponent implements OnChanges {
     subtitle: new FormControl('', { nonNullable: true }),
     isbn: new FormControl('', {
       nonNullable: true,
-      validators: [
-        Validators.required,
-        isbnFormat
-      ],
+      validators: [Validators.required,isbnFormat],
       asyncValidators: inject(AsyncValidatorsService).isbnExists()
     }),
     description: new FormControl('', { nonNullable: true }),
@@ -34,32 +31,27 @@ export class BookFormComponent implements OnChanges {
     thumbnailUrl: new FormControl('', { nonNullable: true })
   });
 
+  get fa() {
+    return this.form.controls.authors;
+  }
+
   ngOnChanges(): void {
     if (this.book) {
-      this.setFormValues(this.book);
-      this.setEditMode(true);
+      this.setValues(this.book);
+      this.setMode(true);
     } else {
-      this.setEditMode(false);
+      this.setMode(false);
     }
   }
 
-  private setFormValues(book: Book) {
+  private setValues(book: Book) {
     this.form.patchValue(book);
-
-    this.form.setControl(
-      'authors',
-      this.buildAuthorsArray(book.authors)
-    );
+    this.form.setControl('authors', this.buildAuthorsArray(book.authors));
   }
 
-  private setEditMode(isEditing: boolean) {
+  private setMode(isEditing: boolean) {
     const isbnControl = this.form.controls.isbn;
-
-    if (isEditing) {
-      isbnControl.disable();
-    } else {
-      isbnControl.enable();
-    }
+    isEditing ? isbnControl.disable() : isbnControl.enable();
   }
 
   private buildAuthorsArray(authors: string[]) {
@@ -69,23 +61,14 @@ export class BookFormComponent implements OnChanges {
     );
   }
 
-  get authors() {
-    return this.form.controls.authors;
-  }
-
   addAuthorControl() {
-    this.authors.push(new FormControl('', { nonNullable: true }));
+    this.fa.push(new FormControl('', { nonNullable: true }));
   }
 
   submitForm() {
     const formValue = this.form.getRawValue();
     const authors = formValue.authors.filter(author => !!author);
-
-    const newBook: Book = {
-      ...formValue,
-      authors
-    };
-
+    const newBook: Book = { ...formValue, authors };
     this.submitBook.emit(newBook);
   }
 }
